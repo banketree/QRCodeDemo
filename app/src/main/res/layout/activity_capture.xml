@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/capture_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true" >
+
+    <SurfaceView
+        android:id="@+id/SurfaceView_preview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:id="@+id/ImageView_error_mask"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000" />
+
+    <FrameLayout
+        android:id="@+id/FrameLayout_crop_view"
+        android:layout_width="@dimen/qrcode_crop_width"
+        android:layout_height="@dimen/qrcode_crop_height"
+        android:layout_centerInParent="true"
+        android:background="@drawable/scan_container" >
+
+        <ImageView
+            android:id="@+id/ImageView_scan_mask"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/scan_mask" />
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/ImageView_mask_left"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_toLeftOf="@id/FrameLayout_crop_view"
+        android:background="#CC000000" />
+
+    <ImageView
+        android:id="@+id/ImageView_mask_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/FrameLayout_crop_view"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@id/ImageView_mask_left"
+        android:background="#CC000000" />
+
+    <ImageView
+        android:id="@+id/ImageView_mask_right"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/ImageView_mask_top"
+        android:layout_toRightOf="@id/FrameLayout_crop_view"
+        android:background="#CC000000" />
+
+    <ImageView
+        android:id="@+id/ImageView_mask_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/FrameLayout_crop_view"
+        android:layout_toLeftOf="@id/ImageView_mask_right"
+        android:layout_toRightOf="@id/ImageView_mask_left"
+        android:background="#CC000000" />
+
+    <TextView
+        android:id="@+id/TextView_scan_tips"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/FrameLayout_crop_view"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="请将图片对准扫描框"
+        android:textColor="@android:color/white"
+        android:textSize="16sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/Button_picture_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="40dp"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/ic_folder"
+            android:gravity="center"
+            android:text="图片"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/Button_light_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:clickable="true"
+            android:drawablePadding="10dp"
+            android:drawableTop="@drawable/btn_light_selector"
+            android:gravity="center"
+            android:text="闪光"
+            android:textColor="@android:color/white"
+            android:textSize="15sp" />
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/RadioGroup_mode_group"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingBottom="20dp" >
+
+        <RadioButton
+            android:id="@+id/RadioButton_mode_qrcode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/btn_qrcode_selector"
+            android:gravity="center"
+            android:text="@string/qrcode"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+
+        <RadioButton
+            android:id="@+id/RadioButton_mode_barcode"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:button="@null"
+            android:checked="false"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/btn_barcode_selector"
+            android:gravity="center"
+            android:text="@string/barcode"
+            android:textColor="#FFFFFF"
+            android:textSize="15sp" />
+    </RadioGroup>
+
+</RelativeLayout>

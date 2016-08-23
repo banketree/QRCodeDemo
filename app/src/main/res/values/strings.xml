@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="app_name">ZXingBar</string>
+    <string name="qrcode">二维码</string>
+    <string name="barcode">条形码</string>
+    <string name="open_camera_error">打开相机失败,请确保允许应用使用相机权限后重试!</string>
+    <string name="decode_null">未解析到任何数据</string>
+
+</resources>
